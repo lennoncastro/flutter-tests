@@ -1,5 +1,5 @@
 import 'package:bytebank/models/contact.dart';
-import 'package:bytebank/features/contact_form.dart';
+import 'package:bytebank/features/contacts/form/contact_form.dart';
 import 'package:bytebank/features/transaction_form.dart';
 import 'package:bytebank/ui/components/progress.dart';
 import 'package:bytebank/widgets/app_dependencies.dart';

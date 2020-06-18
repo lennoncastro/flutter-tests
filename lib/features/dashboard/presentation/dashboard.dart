@@ -1,4 +1,4 @@
-import 'package:bytebank/features/contacts_list.dart';
+import 'package:bytebank/features/contacts/list/contacts_list.dart';
 import 'package:bytebank/features/dashboard/presentation/feature_list.dart';
 import 'package:bytebank/features/dashboard/presentation/feature_list_item.dart';
 import 'package:bytebank/features/transactions_list.dart';
