@@ -1,5 +1,5 @@
 import 'package:bytebank/database/dao/contact_dao.dart';
-import 'package:bytebank/http/webclients/transaction_webclient.dart';
+import 'package:bytebank/network/webclients/transaction_webclient.dart';
 import 'package:flutter/cupertino.dart';
 
 class AppDependencies extends InheritedWidget {
