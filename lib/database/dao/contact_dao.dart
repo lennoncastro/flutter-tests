@@ -1,4 +1,4 @@
-import 'package:bytebank/models/contact.dart';
+import 'package:bytebank/features/contacts/list/contact.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:bytebank/database/app_database.dart';
 

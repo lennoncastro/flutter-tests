@@ -1,12 +1,13 @@
-import 'package:bytebank/models/contact.dart';
 import 'package:bytebank/features/contacts/form/contact_form.dart';
+import 'package:bytebank/features/contacts/list/contact_item.dart';
 import 'package:bytebank/features/transaction_form.dart';
+import 'package:bytebank/features/contacts/list/contact.dart';
 import 'package:bytebank/ui/components/progress.dart';
 import 'package:bytebank/widgets/app_dependencies.dart';
+import 'package:bytebank/widgets/navigation.dart';
 import 'package:flutter/material.dart';
 
 class ContactsList extends StatefulWidget {
-
   @override
   _ContactsListState createState() => _ContactsListState();
 }
@@ -38,13 +39,8 @@ class _ContactsListState extends State<ContactsList> {
                   final Contact contact = contacts[index];
                   return ContactItem(
                     contact,
-                    onClick: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) => TransactionForm(contact),
-                        ),
-                      );
-                    },
+                    onClick: () =>
+                        navigateTo(context, TransactionForm(contact)),
                   );
                 },
                 itemCount: contacts.length,
@@ -55,46 +51,9 @@ class _ContactsListState extends State<ContactsList> {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) => ContactForm(),
-            ),
-          );
-        },
+        onPressed: () => navigateTo(context, ContactForm()),
         child: Icon(
           Icons.add,
-        ),
-      ),
-    );
-  }
-}
-
-class ContactItem extends StatelessWidget {
-  final Contact contact;
-  final Function onClick;
-
-  ContactItem(
-    this.contact, {
-    @required this.onClick,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      child: ListTile(
-        onTap: () => onClick(),
-        title: Text(
-          contact.name,
-          style: TextStyle(
-            fontSize: 24.0,
-          ),
-        ),
-        subtitle: Text(
-          contact.accountNumber.toString(),
-          style: TextStyle(
-            fontSize: 16.0,
-          ),
         ),
       ),
     );

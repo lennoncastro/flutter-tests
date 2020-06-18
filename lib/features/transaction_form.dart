@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:bytebank/network/webclients/transaction_webclient.dart';
-import 'package:bytebank/models/contact.dart';
+import 'package:bytebank/features/contacts/list/contact.dart';
 import 'package:bytebank/models/transaction.dart';
 import 'package:bytebank/ui/components/progress.dart';
 import 'package:bytebank/ui/components/response_dialog.dart';
