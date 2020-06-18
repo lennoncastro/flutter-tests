@@ -1,11 +1,12 @@
 import 'package:bytebank/features/contacts/form/contact_form.dart';
-import 'package:bytebank/features/contacts/list/data/dao/contact_dao.dart';
 import 'package:bytebank/features/contacts/list/presentation/contact.dart';
 import 'package:bytebank/features/contacts/list/presentation/contact_item.dart';
 import 'package:bytebank/features/transaction_form.dart';
 import 'package:bytebank/ui/components/progress.dart';
 import 'package:bytebank/widgets/navigation.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../database/dao/contact_dao.dart';
 
 class ContactsList extends StatefulWidget {
   static String routeName = '/contacts';

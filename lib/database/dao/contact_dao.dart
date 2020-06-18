@@ -2,8 +2,6 @@ import 'package:bytebank/database/app_database.dart';
 import 'package:bytebank/features/contacts/list/presentation/contact.dart';
 import 'package:sqflite/sqflite.dart';
 
-import '../../../../../database/app_database.dart';
-
 class ContactDao {
   Future<int> save(Contact contact) async {
     final Database db = await getDatabase();

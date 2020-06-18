@@ -4,6 +4,8 @@ import 'package:bytebank/features/dashboard/presentation/dashboard.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+import 'features/contacts/form/contact_form.dart';
+import 'features/contacts/form/module/contact_list_module.dart';
 import 'main.dart';
 
 class Module extends MainModule {
@@ -22,6 +24,10 @@ class Module extends MainModule {
         Router(
           ContactsList.routeName,
           module: ContactListModule(),
+        ),
+        Router(
+          ContactForm.routeName,
+          module: ContactFormModule(),
         ),
       ];
 }

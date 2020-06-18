@@ -1,12 +1,17 @@
-import 'package:bytebank/features/contacts/list/data/dao/contact_dao.dart';
 import 'package:bytebank/features/contacts/list/presentation/contact.dart';
+import 'package:bytebank/ui/resources/dimensions.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
+
+import '../../../database/dao/contact_dao.dart';
+
+const PAGE_TITLE = 'New contact';
 
 class ContactForm extends StatefulWidget {
   static String routeName = "/contact/form";
 
-  ContactDao contactDao = Modular.get<ContactDao>();
+  ContactDao contactDao;
+
+  ContactForm(this.contactDao);
 
   @override
   _ContactFormState createState() => _ContactFormState();
@@ -21,10 +26,10 @@ class _ContactFormState extends State<ContactForm> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('New contact'),
+        title: Text(PAGE_TITLE),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(app_16),
         child: Column(
           children: <Widget>[
             TextField(
@@ -37,7 +42,7 @@ class _ContactFormState extends State<ContactForm> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 8.0),
+              padding: const EdgeInsets.only(top: app_8),
               child: TextField(
                 controller: _accountNumberController,
                 decoration: InputDecoration(
@@ -50,7 +55,7 @@ class _ContactFormState extends State<ContactForm> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 16.0),
+              padding: const EdgeInsets.only(top: app_16),
               child: SizedBox(
                 width: double.maxFinite,
                 child: RaisedButton(
@@ -72,7 +77,10 @@ class _ContactFormState extends State<ContactForm> {
   }
 
   void _save(
-      ContactDao contactDao, Contact newContact, BuildContext context) async {
+    ContactDao contactDao,
+    Contact newContact,
+    BuildContext context,
+  ) async {
     await contactDao.save(newContact);
     Navigator.pop(context);
   }
