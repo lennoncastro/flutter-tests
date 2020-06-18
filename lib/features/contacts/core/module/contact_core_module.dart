@@ -1,5 +1,9 @@
 import 'package:bytebank/features/contacts/core/data/contacts_repository.dart';
 import 'package:bytebank/features/contacts/core/data/contacts_repository_impl.dart';
+import 'package:bytebank/features/contacts/core/domain/find_all_contacts_use_case.dart';
+import 'package:bytebank/features/contacts/core/domain/find_all_contacts_use_case_impl.dart';
+import 'package:bytebank/features/contacts/core/domain/save_contact_use_case.dart';
+import 'package:bytebank/features/contacts/core/domain/save_contact_use_case_impl.dart';
 import 'package:bytebank/features/contacts/form/contact_form.dart';
 import 'package:bytebank/features/contacts/list/presentation/contacts_list.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -16,7 +20,17 @@ class ContactCoreModule extends ChildModule {
           (i) => ContactsRepositoryImpl(
             contactDao: Modular.get<ContactDao>(),
           ),
-        )
+        ),
+        Bind<SaveContactUseCase>(
+          (i) => SaveContactUseCaseImpl(
+            contactsRepository: Modular.get<ContactsRepository>(),
+          ),
+        ),
+        Bind<FindAllContactsUseCase>(
+          (i) => FindAllContactsUseCaseImpl(
+            contactsRepository: Modular.get<ContactsRepository>(),
+          ),
+        ),
       ];
 
   @override
