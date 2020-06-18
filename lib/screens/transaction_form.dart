@@ -1,11 +1,11 @@
 import 'dart:async';
 
-import 'package:bytebank/components/progress.dart';
-import 'package:bytebank/components/response_dialog.dart';
-import 'package:bytebank/components/transaction_auth_dialog.dart';
 import 'package:bytebank/network/webclients/transaction_webclient.dart';
 import 'package:bytebank/models/contact.dart';
 import 'package:bytebank/models/transaction.dart';
+import 'package:bytebank/ui/components/progress.dart';
+import 'package:bytebank/ui/components/response_dialog.dart';
+import 'package:bytebank/ui/components/transaction_auth_dialog.dart';
 import 'package:bytebank/widgets/app_dependencies.dart';
 import 'package:flutter/material.dart';
 import 'package:uuid/uuid.dart';

@@ -1,11 +1,11 @@
-import 'package:bytebank/components/response_dialog.dart';
-import 'package:bytebank/components/transaction_auth_dialog.dart';
 import 'package:bytebank/main.dart';
 import 'package:bytebank/models/contact.dart';
 import 'package:bytebank/models/transaction.dart';
 import 'package:bytebank/screens/contacts_list.dart';
 import 'package:bytebank/screens/dashboard.dart';
 import 'package:bytebank/screens/transaction_form.dart';
+import 'package:bytebank/ui/components/response_dialog.dart';
+import 'package:bytebank/ui/components/transaction_auth_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
