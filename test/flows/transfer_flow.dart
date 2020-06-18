@@ -1,10 +1,10 @@
-import 'package:bytebank/features/contacts/list/presentation/contact_item.dart';
-import 'package:bytebank/main.dart';
-import 'package:bytebank/features/contacts/list/presentation/contact.dart';
-import 'package:bytebank/models/transaction.dart';
-import 'package:bytebank/features/contacts/list/presentation/contacts_list.dart';
+import 'package:bytebank/features/contacts/list/contact.dart';
+import 'package:bytebank/features/contacts/list/contact_item.dart';
+import 'package:bytebank/features/contacts/list/contacts_list.dart';
 import 'package:bytebank/features/dashboard/presentation/dashboard.dart';
 import 'package:bytebank/features/transaction_form.dart';
+import 'package:bytebank/main.dart';
+import 'package:bytebank/models/transaction.dart';
 import 'package:bytebank/ui/components/response_dialog.dart';
 import 'package:bytebank/ui/components/transaction_auth_dialog.dart';
 import 'package:flutter/material.dart';
@@ -53,8 +53,8 @@ void main() {
     expect(contactName, findsOneWidget);
     final contactAccountNumber = find.text('1000');
     expect(contactAccountNumber, findsOneWidget);
-    
-    final textFieldValue = find.byWidgetPredicate((widget){
+
+    final textFieldValue = find.byWidgetPredicate((widget) {
       return textFieldByLabelTextMatcher(widget, 'Value');
     });
     expect(textFieldValue, findsOneWidget);
@@ -68,7 +68,8 @@ void main() {
     final transactionAuthDialog = find.byType(TransactionAuthDialog);
     expect(transactionAuthDialog, findsOneWidget);
 
-    final textFieldPassword = find.byKey(transactionAuthDialogTextFieldPasswordKey);
+    final textFieldPassword =
+        find.byKey(transactionAuthDialogTextFieldPasswordKey);
     expect(textFieldPassword, findsOneWidget);
     await tester.enterText(textFieldPassword, '1000');
 
@@ -78,7 +79,7 @@ void main() {
     expect(confirmButton, findsOneWidget);
 
     when(mockTransactionWebClient.save(Transaction(null, 200, alex), '1000'))
-    .thenAnswer((_) async => Transaction(null, 200, alex));
+        .thenAnswer((_) async => Transaction(null, 200, alex));
 
     await tester.tap(confirmButton);
     await tester.pumpAndSettle();

@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:bytebank/network/webclients/transaction_webclient.dart';
-import 'package:bytebank/features/contacts/list/presentation/contact.dart';
+import 'package:bytebank/features/contacts/list/contact.dart';
 import 'package:bytebank/models/transaction.dart';
 import 'package:bytebank/ui/components/progress.dart';
 import 'package:bytebank/ui/components/response_dialog.dart';
@@ -11,6 +11,9 @@ import 'package:flutter/material.dart';
 import 'package:uuid/uuid.dart';
 
 class TransactionForm extends StatefulWidget {
+
+  static String routeName = "/transaction/form";
+
   final Contact contact;
 
   TransactionForm(this.contact);

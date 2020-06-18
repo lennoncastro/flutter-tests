@@ -1,4 +1,4 @@
-import 'package:bytebank/features/contacts/list/presentation/contacts_list.dart';
+import 'package:bytebank/features/contacts/list/contacts_list.dart';
 import 'package:bytebank/features/dashboard/presentation/dashboard.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_modular/flutter_modular.dart';

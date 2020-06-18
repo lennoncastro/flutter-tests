@@ -6,7 +6,8 @@ import 'package:bytebank/features/contacts/core/domain/save_contact_use_case.dar
 import 'package:bytebank/features/contacts/core/domain/save_contact_use_case_impl.dart';
 import 'package:bytebank/features/contacts/form/contact_form.dart';
 import 'package:bytebank/features/contacts/form/contact_form_controller.dart';
-import 'package:bytebank/features/contacts/list/presentation/contacts_list.dart';
+import 'package:bytebank/features/contacts/list/contact_list_controller.dart';
+import 'package:bytebank/features/contacts/list/contacts_list.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../database/dao/contact_dao.dart';
@@ -37,6 +38,11 @@ class ContactCoreModule extends ChildModule {
             contactsRepository: Modular.get<ContactsRepository>(),
           ),
         ),
+        Bind(
+          (i) => ContactListController(
+            contactsRepository: Modular.get<ContactsRepository>(),
+          ),
+        ),
       ];
 
   @override
@@ -50,7 +56,7 @@ class ContactCoreModule extends ChildModule {
         Router(
           ContactsList.routeName,
           child: (_, args) => ContactsList(
-            Modular.get<ContactDao>(),
+            contactListController: Modular.get<ContactListController>(),
           ),
         )
       ];

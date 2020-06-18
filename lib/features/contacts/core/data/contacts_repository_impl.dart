@@ -1,4 +1,4 @@
-import 'package:bytebank/features/contacts/list/presentation/contact.dart';
+import 'package:bytebank/features/contacts/list/contact.dart';
 import 'package:flutter/widgets.dart';
 
 import '../../../../database/dao/contact_dao.dart';

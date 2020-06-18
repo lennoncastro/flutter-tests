@@ -1,19 +1,19 @@
 import 'package:bytebank/features/contacts/form/contact_form.dart';
-import 'package:bytebank/features/contacts/list/presentation/contact.dart';
-import 'package:bytebank/features/contacts/list/presentation/contact_item.dart';
+import 'package:bytebank/features/contacts/list/contact.dart';
 import 'package:bytebank/features/transaction_form.dart';
 import 'package:bytebank/ui/components/progress.dart';
 import 'package:bytebank/widgets/navigation.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../database/dao/contact_dao.dart';
+import 'contact_item.dart';
+import 'contact_list_controller.dart';
 
 class ContactsList extends StatefulWidget {
   static String routeName = '/contacts';
 
-  ContactDao contactDao;
+  ContactListController contactListController;
 
-  ContactsList(this.contactDao);
+  ContactsList({@required this.contactListController});
 
   @override
   _ContactsListState createState() => _ContactsListState();
@@ -28,7 +28,7 @@ class _ContactsListState extends State<ContactsList> {
       ),
       body: FutureBuilder<List<Contact>>(
         initialData: List(),
-        future: widget.contactDao.findAll(),
+        future: widget.contactListController.findAll(),
         builder: (context, snapshot) {
           switch (snapshot.connectionState) {
             case ConnectionState.none:
@@ -45,9 +45,8 @@ class _ContactsListState extends State<ContactsList> {
                   final Contact contact = contacts[index];
                   return ContactItem(
                     contact,
-                    onClick: () => navigateTo(
-                      context,
-                      TransactionForm(contact),
+                    onClick: () => navigateToWithString(
+                      TransactionForm.routeName,
                     ),
                   );
                 },

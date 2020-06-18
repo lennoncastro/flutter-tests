@@ -1,7 +1,7 @@
 import 'package:bytebank/main.dart';
-import 'package:bytebank/features/contacts/list/presentation/contact.dart';
+import 'package:bytebank/features/contacts/list/contact.dart';
 import 'package:bytebank/features/contacts/form/contact_form.dart';
-import 'package:bytebank/features/contacts/list/presentation/contacts_list.dart';
+import 'package:bytebank/features/contacts/list/contacts_list.dart';
 import 'package:bytebank/features/dashboard/presentation/dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';

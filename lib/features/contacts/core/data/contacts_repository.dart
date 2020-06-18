@@ -1,4 +1,4 @@
-import 'package:bytebank/features/contacts/list/presentation/contact.dart';
+import 'package:bytebank/features/contacts/list/contact.dart';
 
 abstract class ContactsRepository {
   Future<int> save(Contact contact);
