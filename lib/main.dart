@@ -1,41 +1,25 @@
-import 'package:bytebank/database/dao/contact_dao.dart';
-import 'package:bytebank/network/webclients/transaction_webclient.dart';
-import 'package:bytebank/features/dashboard/presentation/dashboard.dart';
-import 'package:bytebank/widgets/app_dependencies.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
-void main() {
-  runApp(BytebankApp(
-    contactDao: ContactDao(),
-    transactionWebClient: TransactionWebClient(),
-  ));
-}
+import 'module.dart';
+
+void main() => runApp(ModularApp(module: Module()));
 
 class BytebankApp extends StatelessWidget {
-  final ContactDao contactDao;
-  final TransactionWebClient transactionWebClient;
-
-  BytebankApp({
-    @required this.contactDao,
-    @required this.transactionWebClient,
-  });
-
   @override
   Widget build(BuildContext context) {
-    return AppDependencies(
-      transactionWebClient: transactionWebClient,
-      contactDao: contactDao,
-      child: MaterialApp(
-        theme: ThemeData(
-          primaryColor: Colors.green[900],
-          accentColor: Colors.blueAccent[700],
-          buttonTheme: ButtonThemeData(
-            buttonColor: Colors.blueAccent[700],
-            textTheme: ButtonTextTheme.primary,
-          ),
+    return MaterialApp(
+      theme: ThemeData(
+        primaryColor: Colors.green[900],
+        accentColor: Colors.blueAccent[700],
+        buttonTheme: ButtonThemeData(
+          buttonColor: Colors.blueAccent[700],
+          textTheme: ButtonTextTheme.primary,
         ),
-        home: Dashboard(),
       ),
+      navigatorKey: Modular.navigatorKey,
+      onGenerateRoute: Modular.generateRoute,
+      initialRoute: "/",
     );
   }
 }

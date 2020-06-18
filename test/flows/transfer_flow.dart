@@ -19,10 +19,7 @@ void main() {
   testWidgets('Should transfer to a contact', (tester) async {
     final mockContactDao = MockContactDao();
     final mockTransactionWebClient = MockTransactionWebClient();
-    await tester.pumpWidget(BytebankApp(
-      transactionWebClient: mockTransactionWebClient,
-      contactDao: mockContactDao,
-    ));
+    await tester.pumpWidget(BytebankApp());
 
     final dashboard = find.byType(Dashboard);
     expect(dashboard, findsOneWidget);

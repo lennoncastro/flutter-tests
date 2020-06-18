@@ -10,6 +10,9 @@ final PAGE_TITLE = 'Dashboard';
 final LOGO_PATH = 'images/bytebank_logo.png';
 
 class Dashboard extends StatelessWidget {
+
+  static String routeName = "/";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

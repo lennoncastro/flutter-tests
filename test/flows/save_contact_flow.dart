@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 
-import '../widgets/dashboard_widget_test.dart';
 import '../matchers/matchers.dart';
 import '../mocks/mocks.dart';
 import 'actions.dart';
@@ -15,9 +14,7 @@ import 'actions.dart';
 void main() {
   testWidgets('Should save a contact', (tester) async {
     final mockContactDao = MockContactDao();
-    await tester.pumpWidget(BytebankApp(
-      contactDao: mockContactDao,
-    ));
+    await tester.pumpWidget(BytebankApp());
 
     final dashboard = find.byType(Dashboard);
     expect(dashboard, findsOneWidget);
