@@ -1,17 +1,16 @@
-import 'package:bytebank/features/contacts/list/presentation/contact.dart';
 import 'package:bytebank/ui/resources/dimensions.dart';
 import 'package:flutter/material.dart';
 
-import '../../../database/dao/contact_dao.dart';
+import 'contact_form_controller.dart';
 
 const PAGE_TITLE = 'New contact';
 
 class ContactForm extends StatefulWidget {
   static String routeName = "/contact/form";
 
-  ContactDao contactDao;
+  ContactFormController contactFormController;
 
-  ContactForm(this.contactDao);
+  ContactForm({@required this.contactFormController});
 
   @override
   _ContactFormState createState() => _ContactFormState();
@@ -60,13 +59,7 @@ class _ContactFormState extends State<ContactForm> {
                 width: double.maxFinite,
                 child: RaisedButton(
                   child: Text('Create'),
-                  onPressed: () {
-                    final String name = _nameController.text;
-                    final int accountNumber =
-                        int.tryParse(_accountNumberController.text);
-                    final Contact newContact = Contact(0, name, accountNumber);
-                    _save(widget.contactDao, newContact, context);
-                  },
+                  onPressed: () => onButtonPressed(context),
                 ),
               ),
             )
@@ -76,12 +69,11 @@ class _ContactFormState extends State<ContactForm> {
     );
   }
 
-  void _save(
-    ContactDao contactDao,
-    Contact newContact,
-    BuildContext context,
-  ) async {
-    await contactDao.save(newContact);
+  void onButtonPressed(BuildContext context) async {
+    await widget.contactFormController.save(
+      _nameController.text,
+      _accountNumberController.text,
+    );
     Navigator.pop(context);
   }
 }
