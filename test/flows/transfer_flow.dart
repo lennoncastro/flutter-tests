@@ -2,7 +2,7 @@ import 'package:bytebank/main.dart';
 import 'package:bytebank/models/contact.dart';
 import 'package:bytebank/models/transaction.dart';
 import 'package:bytebank/features/contacts_list.dart';
-import 'package:bytebank/features/dashboard.dart';
+import 'package:bytebank/features/dashboard/presentation/dashboard.dart';
 import 'package:bytebank/features/transaction_form.dart';
 import 'package:bytebank/ui/components/response_dialog.dart';
 import 'package:bytebank/ui/components/transaction_auth_dialog.dart';

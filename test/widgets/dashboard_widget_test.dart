@@ -1,4 +1,4 @@
-import 'package:bytebank/features/dashboard.dart';
+import 'package:bytebank/features/dashboard/presentation/dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
