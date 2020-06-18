@@ -1,10 +1,11 @@
-import 'package:bytebank/network/webclients/transaction_webclient.dart';
 import 'package:bytebank/models/transaction.dart';
+import 'package:bytebank/network/webclients/transaction_webclient.dart';
 import 'package:bytebank/ui/components/centered_message.dart';
 import 'package:bytebank/ui/components/progress.dart';
 import 'package:flutter/material.dart';
 
 class TransactionsList extends StatelessWidget {
+  static String routeName = "/transactions";
 
   final TransactionWebClient _webClient = TransactionWebClient();
 
@@ -26,7 +27,7 @@ class TransactionsList extends StatelessWidget {
             case ConnectionState.active:
               break;
             case ConnectionState.done:
-              if(snapshot.hasData){
+              if (snapshot.hasData) {
                 final List<Transaction> transactions = snapshot.data;
                 if (transactions.isNotEmpty) {
                   return ListView.builder(
@@ -61,7 +62,6 @@ class TransactionsList extends StatelessWidget {
               );
               break;
           }
-
           return CenteredMessage('Unknown error');
         },
       ),

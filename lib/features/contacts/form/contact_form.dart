@@ -1,9 +1,12 @@
-import 'package:bytebank/database/dao/contact_dao.dart';
-import 'package:bytebank/features/contacts/list/contact.dart';
-import 'package:bytebank/widgets/app_dependencies.dart';
+import 'package:bytebank/features/contacts/list/data/dao/contact_dao.dart';
+import 'package:bytebank/features/contacts/list/presentation/contact.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 class ContactForm extends StatefulWidget {
+  static String routeName = "/contact/form";
+
+  ContactDao contactDao = Modular.get<ContactDao>();
 
   @override
   _ContactFormState createState() => _ContactFormState();
@@ -16,7 +19,6 @@ class _ContactFormState extends State<ContactForm> {
 
   @override
   Widget build(BuildContext context) {
-    final dependencies = AppDependencies.of(context);
     return Scaffold(
       appBar: AppBar(
         title: Text('New contact'),
@@ -58,7 +60,7 @@ class _ContactFormState extends State<ContactForm> {
                     final int accountNumber =
                         int.tryParse(_accountNumberController.text);
                     final Contact newContact = Contact(0, name, accountNumber);
-                    _save(dependencies.contactDao, newContact, context);
+                    _save(widget.contactDao, newContact, context);
                   },
                 ),
               ),
@@ -69,7 +71,8 @@ class _ContactFormState extends State<ContactForm> {
     );
   }
 
-  void _save(ContactDao contactDao, Contact newContact, BuildContext context) async {
+  void _save(
+      ContactDao contactDao, Contact newContact, BuildContext context) async {
     await contactDao.save(newContact);
     Navigator.pop(context);
   }

@@ -1,8 +1,8 @@
-import 'package:bytebank/features/contacts/list/contact_item.dart';
+import 'package:bytebank/features/contacts/list/presentation/contact_item.dart';
 import 'package:bytebank/main.dart';
-import 'package:bytebank/features/contacts/list/contact.dart';
+import 'package:bytebank/features/contacts/list/presentation/contact.dart';
 import 'package:bytebank/models/transaction.dart';
-import 'package:bytebank/features/contacts/list/contacts_list.dart';
+import 'package:bytebank/features/contacts/list/presentation/contacts_list.dart';
 import 'package:bytebank/features/dashboard/presentation/dashboard.dart';
 import 'package:bytebank/features/transaction_form.dart';
 import 'package:bytebank/ui/components/response_dialog.dart';

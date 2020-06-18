@@ -1,13 +1,19 @@
 import 'package:bytebank/features/contacts/form/contact_form.dart';
-import 'package:bytebank/features/contacts/list/contact_item.dart';
+import 'package:bytebank/features/contacts/list/data/dao/contact_dao.dart';
+import 'package:bytebank/features/contacts/list/presentation/contact.dart';
+import 'package:bytebank/features/contacts/list/presentation/contact_item.dart';
 import 'package:bytebank/features/transaction_form.dart';
-import 'package:bytebank/features/contacts/list/contact.dart';
 import 'package:bytebank/ui/components/progress.dart';
-import 'package:bytebank/widgets/app_dependencies.dart';
 import 'package:bytebank/widgets/navigation.dart';
 import 'package:flutter/material.dart';
 
 class ContactsList extends StatefulWidget {
+  static String routeName = '/contacts';
+
+  ContactDao contactDao;
+
+  ContactsList(this.contactDao);
+
   @override
   _ContactsListState createState() => _ContactsListState();
 }
@@ -15,14 +21,13 @@ class ContactsList extends StatefulWidget {
 class _ContactsListState extends State<ContactsList> {
   @override
   Widget build(BuildContext context) {
-    final dependencies = AppDependencies.of(context);
     return Scaffold(
       appBar: AppBar(
         title: Text('Transfer'),
       ),
       body: FutureBuilder<List<Contact>>(
         initialData: List(),
-        future: dependencies.contactDao.findAll(),
+        future: widget.contactDao.findAll(),
         builder: (context, snapshot) {
           switch (snapshot.connectionState) {
             case ConnectionState.none:
@@ -39,8 +44,10 @@ class _ContactsListState extends State<ContactsList> {
                   final Contact contact = contacts[index];
                   return ContactItem(
                     contact,
-                    onClick: () =>
-                        navigateTo(context, TransactionForm(contact)),
+                    onClick: () => navigateTo(
+                      context,
+                      TransactionForm(contact),
+                    ),
                   );
                 },
                 itemCount: contacts.length,
@@ -51,7 +58,7 @@ class _ContactsListState extends State<ContactsList> {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => navigateTo(context, ContactForm()),
+        onPressed: () => navigateToWithString(ContactForm.routeName),
         child: Icon(
           Icons.add,
         ),

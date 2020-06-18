@@ -1,4 +1,4 @@
-import 'package:bytebank/features/contacts/list/contacts_list.dart';
+import 'package:bytebank/features/contacts/list/presentation/contacts_list.dart';
 import 'package:bytebank/features/dashboard/presentation/feature_list.dart';
 import 'package:bytebank/features/dashboard/presentation/feature_list_item.dart';
 import 'package:bytebank/features/transactions_list.dart';
@@ -66,8 +66,8 @@ class Dashboard extends StatelessWidget {
   }
 
   void _showContactsList(BuildContext context) =>
-      navigateTo(context, ContactsList());
+      navigateToWithString(ContactsList.routeName);
 
   void _showTransactionsList(BuildContext context) =>
-      navigateTo(context, TransactionsList());
+      navigateToWithString(TransactionsList.routeName);
 }

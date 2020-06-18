@@ -1,4 +1,4 @@
-import '../features/contacts/list/contact.dart';
+import '../features/contacts/list/presentation/contact.dart';
 
 class Transaction {
   final String id;
