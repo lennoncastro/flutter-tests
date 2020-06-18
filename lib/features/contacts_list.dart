@@ -1,6 +1,6 @@
 import 'package:bytebank/models/contact.dart';
-import 'package:bytebank/screens/contact_form.dart';
-import 'package:bytebank/screens/transaction_form.dart';
+import 'package:bytebank/features/contact_form.dart';
+import 'package:bytebank/features/transaction_form.dart';
 import 'package:bytebank/ui/components/progress.dart';
 import 'package:bytebank/widgets/app_dependencies.dart';
 import 'package:flutter/material.dart';

@@ -1,4 +1,4 @@
-import 'package:bytebank/screens/dashboard.dart';
+import 'package:bytebank/features/dashboard.dart';
 import 'package:flutter/material.dart';
 
 bool featureItemMatcher(Widget widget, String name, IconData icon) {
